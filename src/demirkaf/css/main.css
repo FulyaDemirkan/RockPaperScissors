@@ -1,0 +1,51 @@
+/*
+Name: F. Fulya Demirkan
+File: main.css
+Other Files in this Project: 
+- Rps.java
+- Player.java
+- FXMLRpsController.java
+- FXMLRps.fxml
+
+Main class: A4_demirkaf
+*/
+
+/* 
+    Created on : 12-Jul-2017, 10:10:05 PM
+    Author     : Fulya Demirkan
+*/
+
+/* Label and button shared font size */
+.label, .button {
+    -fx-font-size: 2em;
+}
+
+.label {
+    -fx-margin: 4px 2px 4px 2px;
+    -fx-font-weight: bold;
+}
+
+/* Header label specific style */
+#header {
+    -fx-font-size: 3.5em;
+}
+
+.gridPane {
+    -fx-vgap: 10px;
+}
+
+/* Image shared styles */
+.playerToken, #compToken {
+    -fx-margin: 10px 10px 10px 10px;
+    -fx-padding: 4px 4px 4px 4px;
+}
+
+/* player images background */
+.playerToken {
+    -fx-background-color: #87ceeb;
+}
+
+/* Computer image background */
+#compToken {
+    -fx-background-color: black;
+}

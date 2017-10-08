@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.net.URL?>
+
+<!--
+Name: F. Fulya Demirkan
+File: FXMLRps.fxml
+Other Files in this Project: 
+- Rps.java
+- Player.java
+- FXMLRpsController.java
+- main.css
+
+Main class: A4_demirkaf
+-->
+
+<GridPane styleClass="gridPane" xmlns:fx="http://javafx.com/fxml/1" 
+          fx:controller="demirkaf.FXMLRpsController">
+    <columnConstraints>
+        <ColumnConstraints percentWidth="33.3" />
+        <ColumnConstraints percentWidth="33.3" /> 
+        <ColumnConstraints percentWidth="33.3" /> 
+    </columnConstraints>
+
+    <children>
+        <!-- Header Labels -->
+        <Label text="Play Rock, Paper, Scissors!" id="header" 
+               GridPane.rowIndex="0" GridPane.columnIndex="0" 
+               GridPane.columnSpan="3" GridPane.halignment="CENTER" />
+        <Label text="Choose your method of destruction:" 
+               GridPane.rowIndex="1" GridPane.columnIndex="0" 
+               GridPane.columnSpan="3" GridPane.halignment="LEFT"/>
+        
+        <!-- Player Tokens (Player chooses)
+        FlowPane background acts as a border for images.  -->
+        <FlowPane maxWidth="208" maxHeight="208" styleClass="playerToken" 
+                  fx:id="rockToken" GridPane.rowIndex="2" 
+                  GridPane.columnIndex="0" GridPane.halignment="CENTER"> 
+            <ImageView  fx:id="imgRock" fitHeight="200" fitWidth="200" 
+                        preserveRatio="true" onMouseClicked="#imgClicked" >
+                <image>
+                    <Image url="@res/rock.png" />
+                </image>
+            </ImageView>
+        </FlowPane>
+        <FlowPane maxWidth="208" maxHeight="208" styleClass="playerToken" 
+                  fx:id="paperToken" GridPane.rowIndex="2" 
+                  GridPane.columnIndex="1" GridPane.halignment="CENTER" >
+            <ImageView fx:id="imgPaper" fitHeight="200" fitWidth="200" 
+                       preserveRatio="true" onMouseClicked="#imgClicked" >
+                <image>
+                    <Image url="@res/paper.png"/>
+                </image>
+            </ImageView>
+        </FlowPane>
+        <FlowPane maxWidth="208" maxHeight="208" styleClass="playerToken" 
+                  fx:id="scissorsToken" GridPane.rowIndex="2" 
+                  GridPane.columnIndex="2" GridPane.halignment="CENTER">
+            <ImageView fx:id="imgScissors" fitHeight="200" fitWidth="200" 
+                       preserveRatio="true" onMouseClicked="#imgClicked" >
+                <image>
+                    <Image url="@res/scissors.png"/>
+                </image>
+            </ImageView>
+        </FlowPane>
+        
+        <Label text="Computer Chooses:" GridPane.rowIndex="3" 
+               GridPane.columnIndex="0" GridPane.halignment="RIGHT" />
+        
+        <!-- Computer Token - Randomly Chosen by method
+        FlowPane background acts as a border for image.  -->
+        <FlowPane maxWidth="208" maxHeight="208" id="compToken" 
+                  GridPane.rowIndex="3" GridPane.columnIndex="1" 
+                  GridPane.halignment="CENTER" >
+            <ImageView fx:id="imgComp" fitHeight="200" fitWidth="200" 
+                       preserveRatio="true" >
+                <image>
+                    <Image url="@res/question.png"/>
+                </image>
+            </ImageView>
+        </FlowPane>
+        
+        <!-- Game Stats 
+        VBox centers all nested HBox's at the center-left of the GridPane 
+        cell.
+        Separate Hbox's hold score labels for both player and computer -->
+        <VBox GridPane.rowIndex="3" GridPane.columnIndex="2" 
+              alignment="CENTER_LEFT">
+            <children>
+                <Label fx:id="lblwinner" text="" />
+                <HBox>
+                    <children>
+                        <Label text="Your Score: " />
+                        <Label text="0" fx:id="lblPlayerScore"/>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label text="Computer Score: " />
+                        <Label text="0" fx:id="lblCompScore" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        
+        <!-- Reset / Exit Buttons -->
+        <GridPane styleClass="gridPane" GridPane.rowIndex="4" 
+                  GridPane.columnIndex="0" GridPane.columnSpan="3">
+            <children>
+                <!-- Each BorderPane stretches the content(button) to fill the
+                container -->
+                <BorderPane GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                            GridPane.hgrow="ALWAYS" >
+                    <center>
+                        <Button minWidth="350" maxWidth="Infinity" 
+                                fx:id="btnReset" text="_Reset" 
+                                mnemonicParsing="true" onAction="#resetGame" />
+                    </center>
+                </BorderPane>
+                <BorderPane GridPane.rowIndex="0" GridPane.columnIndex="1" 
+                            GridPane.hgrow="ALWAYS" >
+                    <center>
+                        <Button minWidth="350" maxWidth="Infinity" 
+                                fx:id="btnExit" text="E_xit" 
+                                mnemonicParsing="true" onAction="#exitGame" />
+                    </center>
+                </BorderPane>
+            </children>
+        </GridPane>
+    </children>
+    
+    <stylesheets>
+        <URL value="@css/main.css" />
+    </stylesheets>
+</GridPane>
